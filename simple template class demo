@@ -1,0 +1,80 @@
+#include<iostream>
+using namespace std;
+template <typename T>
+class Rectangle
+{
+    private:
+  T length;
+  T breadth;
+    public:
+  Rectangle(); // default constructor
+  Rectangle(T length,T breadth); //param constructor
+  T area(); // facilitator to find area
+  T perimeter(); // facilitator to find perimeter
+  void setLength(T length); // modifier to set length
+  void setBreadth(T breadth); // modifier to set breadth
+  T getLength(); //Accessor to acess length
+  T getBreadth(); //Accessor to acess breadth
+  ~Rectangle();  // destructor
+};
+int main()
+{
+    Rectangle <int>  r(15,20);
+    cout << "The length of the rectange is " << r.getLength() << endl;
+     cout << "The breadth of the rectange is " << r.getBreadth() << endl;
+      cout << "The Area of the rectange is " << r.area() << endl;
+       cout << "The Perimeter of the rectange is " << r.perimeter() << endl;
+       r.setLength(25);
+       r.setBreadth(30);
+       cout << "The modified Length is " << r.getLength() << endl;
+       cout << "The modified breadth is " << r.getBreadth() << endl;
+    return 0;
+}
+template <typename T>
+Rectangle <T> :: Rectangle()
+  {
+      length = breadth = 1;
+  }
+  template <typename T>
+Rectangle <T> :: Rectangle(T length,T breadth)
+  {
+      this -> length = length;
+      this -> breadth = breadth;
+  }
+ template <typename T>
+  T Rectangle <T> :: area()
+  {
+      T result = length*breadth;
+      return result;
+  }
+  template <typename T>
+  T Rectangle <T> ::  perimeter()
+  {
+      T r = 2*(length+breadth);
+      return r;
+  }
+  template <typename T>
+  void Rectangle <T> :: setLength(T length)
+  {
+      this -> length = length;
+  }
+  template <typename T>
+  void Rectangle <T>:: setBreadth(T breadth)
+  {
+      this -> breadth = breadth;
+  }
+  template <typename T>
+   T Rectangle  <T>:: getLength()
+  {
+      return length;
+  }
+  template <typename T>
+  T Rectangle <T> :: getBreadth()
+  {
+      return breadth;
+  }
+  template <typename T>
+  Rectangle  <T>:: ~Rectangle()
+  {
+      cout << "This is a destructor" << endl;
+  }
